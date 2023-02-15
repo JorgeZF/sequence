@@ -23,6 +23,7 @@ class TraverseSequence extends RecursiveSequence {
     /**
      * @return TraverseSequence|MappedSequence
      */
+    #[\ReturnTypeWillChange]
     public function getChildren() {
         $x = $this->current();
         if ($this->canGoDeeper()) {
@@ -39,6 +40,7 @@ class TraverseSequence extends RecursiveSequence {
     /**
      * @return string
      */
+    #[\ReturnTypeWillChange]
     public function key() {
         $key = parent::key();
         return $this->path . $key;

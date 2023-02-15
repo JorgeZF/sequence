@@ -30,22 +30,27 @@ class OnDemandIterator implements \Iterator {
         return $this->iterator;
     }
 
+    #[\ReturnTypeWillChange]
     public function current() {
         return $this->getIterator()->current();
     }
 
+    #[\ReturnTypeWillChange]
     public function next() {
         $this->getIterator()->next();
     }
 
+    #[\ReturnTypeWillChange]
     public function key() {
         return $this->getIterator()->key();
     }
 
+    #[\ReturnTypeWillChange]
     public function valid() {
         return $this->getIterator()->valid();
     }
 
+    #[\ReturnTypeWillChange]
     public function rewind() {
         $this->getIterator()->rewind();
     }

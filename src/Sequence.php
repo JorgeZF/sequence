@@ -478,6 +478,7 @@ class Sequence extends IteratorIterator implements IterationFunctions, Recursive
     /**
      * @return null
      */
+    #[\ReturnTypeWillChange]
     public function getChildren() {
         return null;
     }

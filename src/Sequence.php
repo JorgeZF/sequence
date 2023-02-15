@@ -485,6 +485,7 @@ class Sequence extends IteratorIterator implements IterationFunctions, Recursive
     /**
      * @return false
      */
+    #[\ReturnTypeWillChange]
     public function hasChildren() {
         return false;
     }

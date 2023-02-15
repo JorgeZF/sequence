@@ -27,6 +27,7 @@ class FilteredSequence extends FilterIterator {
      * Necessary to support FilterIterator - true = keep, false = skip
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function accept() {
         /** @var Closure $fn */
         $fn = $this->fnFilterFunction;

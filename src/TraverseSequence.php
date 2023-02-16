@@ -2,6 +2,8 @@
 
 namespace Revinate\Sequence;
 
+use \ReturnTypeWillChange;
+
 class TraverseSequence extends RecursiveSequence {
     protected $path;
     protected $pathSeparator = '.';
@@ -23,8 +25,7 @@ class TraverseSequence extends RecursiveSequence {
     /**
      * @return TraverseSequence|MappedSequence
      */
-    #[\ReturnTypeWillChange]
-    public function getChildren() {
+    #[ReturnTypeWillChange] public function getChildren() {
         $x = $this->current();
         if ($this->canGoDeeper()) {
             return self::make($x, $this->key(), $this->pathSeparator)->setMaxDepth($this->depth - 1);
@@ -40,8 +41,7 @@ class TraverseSequence extends RecursiveSequence {
     /**
      * @return string
      */
-    #[\ReturnTypeWillChange]
-    public function key() {
+    #[ReturnTypeWillChange] public function key() {
         $key = parent::key();
         return $this->path . $key;
     }

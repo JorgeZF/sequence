@@ -8,6 +8,7 @@
 
 namespace Revinate\Sequence\Tutorial\util;
 
+use ReturnTypeWillChange;
 
 class StreamReaderIterator implements \Iterator {
 
@@ -33,22 +34,22 @@ class StreamReaderIterator implements \Iterator {
         fclose($this->resource);
     }
 
-    public function next() {
+    #[ReturnTypeWillChange] public function next() {
         $this->current = null;
         $this->isValid = ! feof($this->resource);
         ++$this->lineNumber;
     }
 
-    public function valid() {
+    #[ReturnTypeWillChange] public function valid() {
         return $this->isValid;
     }
 
-    public function rewind() {
+    #[ReturnTypeWillChange] public function rewind() {
         if (rewind($this->resource)) {
             $this->lineNumber = 0;
         }
     }
-    public function current() {
+    #[ReturnTypeWillChange] public function current() {
         if (is_null($this->current)) {
             $this->current = fgets($this->resource);
         }
@@ -58,7 +59,7 @@ class StreamReaderIterator implements \Iterator {
         return $this->current;
     }
 
-    public function key() {
+    #[ReturnTypeWillChange] public function key() {
         return $this->lineNumber;
     }
 }

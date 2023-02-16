@@ -2,6 +2,7 @@
 namespace Revinate\Sequence;
 
 use \RecursiveIterator;
+use \ReturnTypeWillChange;
 
 class RecursiveSequence extends Sequence implements RecursiveIterator  {
     protected $depth = -1;
@@ -13,7 +14,7 @@ class RecursiveSequence extends Sequence implements RecursiveIterator  {
     /**
      * @return RecursiveSequence
      */
-    public function getChildren() {
+    #[ReturnTypeWillChange] public function getChildren() {
         $x = $this->current();
         if ($this->canGoDeeper()) {
             return self::make($x)->setMaxDepth($this->depth - 1);
@@ -34,7 +35,7 @@ class RecursiveSequence extends Sequence implements RecursiveIterator  {
     /**
      * @return bool - true if we can make a sequence out of the current item.
      */
-    public function hasChildren() {
+    #[ReturnTypeWillChange] public function hasChildren() {
         return $this->valid() && $this->depth != 0 && self::canBeSequence($this->current());
     }
 }

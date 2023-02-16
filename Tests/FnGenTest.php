@@ -10,6 +10,7 @@ namespace Revinate\Sequence;
 
 
 use PHPUnit\Framework\TestCase;
+use ReturnTypeWillChange;
 
 class FnGenTest extends TestCase {
 
@@ -69,7 +70,7 @@ class FnGenTest extends TestCase {
             array('name'=>'Robert', 'age' => 55),
             array('group'=>'student'),
         );
-        $fnLen = static function($v) { return strlen($v); };
+        $fnLen = static function($v) { return strlen($v ?? ''); };
 
         // Extract only the elements with with name length of 3
         $results = Sequence::make($values)
@@ -140,23 +141,23 @@ class FnGenTest extends TestCase {
         $this->assertTrue($fn('0'));
         $this->assertTrue($fn(false));
         $this->assertTrue($fn(null));
-        $this->assertTrue($fn('hello'));  // <-- sad truth about PHP.
         $this->assertTrue($fn(0.0));
 
         $this->assertFalse($fn(1));
         $this->assertFalse($fn(true));
         $this->assertFalse($fn('100'));
+        $this->assertFalse($fn('hello'));
 
         $fn = FnGen::fnIsEqual('hello');
         $this->assertTrue($fn('hello'));
         $this->assertTrue($fn(true));   // <-- also true.
-        $this->assertTrue($fn(0));      // <-- sad truth about PHP.
-        $this->assertTrue($fn(0.0));    // <-- again, sadly this is true
 
         $this->assertFalse($fn('Hello'));
         $this->assertFalse($fn('0'));
         $this->assertFalse($fn(null));
         $this->assertFalse($fn(false));
+        $this->assertFalse($fn(0));
+        $this->assertFalse($fn(0.0));
 
         $fn = FnGen::fnIsEqual('0');  // Making it a string changes everything.
         $this->assertTrue($fn(0));
@@ -183,23 +184,23 @@ class FnGenTest extends TestCase {
         $this->assertFalse($fn('0'));
         $this->assertFalse($fn(false));
         $this->assertFalse($fn(null));
-        $this->assertFalse($fn('hello'));  // <-- sad truth about PHP.
         $this->assertFalse($fn(0.0));
 
         $this->assertTrue($fn(1));
         $this->assertTrue($fn(true));
         $this->assertTrue($fn('100'));
+        $this->assertTrue($fn('hello'));
 
         $fn = FnGen::fnIsNotEqual('hello');
         $this->assertFalse($fn('hello'));
         $this->assertFalse($fn(true));   // <-- also true.
-        $this->assertFalse($fn(0));      // <-- sad truth about PHP.
-        $this->assertFalse($fn(0.0));    // <-- again, sadly this is true
 
         $this->assertTrue($fn('Hello'));
         $this->assertTrue($fn('0'));
         $this->assertTrue($fn(null));
         $this->assertTrue($fn(false));
+        $this->assertTrue($fn(0));
+        $this->assertTrue($fn(0.0));
 
         $fn1 = FnGen::fnIsNotEqual(0);
         $fn2 = FnGen::fnIsEqual(1);
@@ -303,7 +304,7 @@ class FnGenTest extends TestCase {
     public function testFnCount() {
         $fn = FnGen::fnCount();
         $co = new class implements \Countable {
-            public function count()
+            #[ReturnTypeWillChange] public function count()
             {
                 return 42;
             }

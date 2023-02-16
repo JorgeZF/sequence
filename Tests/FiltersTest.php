@@ -19,7 +19,7 @@ class FiltersTest extends TestCase {
     public function testNot() {
         $fnNot = fnNot();
 
-        $this->assertInternalType('bool', $fnNot(true));
+        $this->assertIsBool($fnNot(true));
         $this->assertFalse($fnNot(true));
         $this->assertFalse($fnNot(1));
         $this->assertFalse($fnNot(100));
@@ -31,7 +31,7 @@ class FiltersTest extends TestCase {
         $this->assertTrue($fnNot('0'));
 
         $fnNotNot = fnNot(fnNot());
-        $this->assertInternalType('bool', $fnNotNot(true));
+        $this->assertIsBool($fnNotNot(true));
         $this->assertTrue($fnNotNot(true));
         $this->assertTrue($fnNotNot(1));
         $this->assertTrue($fnNotNot(100));

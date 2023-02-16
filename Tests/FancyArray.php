@@ -5,6 +5,8 @@
 
 namespace Revinate\Sequence\Test;
 
+use ReturnTypeWillChange;
+
 class FancyArray extends \ArrayObject
 {
 
@@ -220,7 +222,7 @@ class FancyArray extends \ArrayObject
     /**
      * @return FancyArray
      */
-    public function ksort() {
+    #[ReturnTypeWillChange] public function ksort(int $flags = SORT_REGULAR) {
         $arr = $this->to_a();
         ksort($arr);
         return new self($arr);
@@ -238,7 +240,7 @@ class FancyArray extends \ArrayObject
     /**
      * @return FancyArray
      */
-    public function uksort($func) {
+    #[ReturnTypeWillChange] public function uksort($func) {
         $arr = $this->to_a();
         uksort($arr, $func);
         return new self($arr);
@@ -247,7 +249,7 @@ class FancyArray extends \ArrayObject
     /**
      * @return FancyArray
      */
-    public function asort() {
+    #[ReturnTypeWillChange] public function asort(int $flags = SORT_REGULAR) {
         $arr = $this->to_a();
         asort($arr);
         return new self($arr);
@@ -274,9 +276,9 @@ class FancyArray extends \ArrayObject
     /**
      * @return FancyArray
      */
-    public function uasort($func) {
+    #[ReturnTypeWillChange] public function uasort($callback) {
         $arr = $this->to_a();
-        uasort($arr, $func);
+        uasort($arr, $callback);
         return new self($arr);
     }
 

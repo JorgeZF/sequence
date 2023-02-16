@@ -13,14 +13,14 @@ use PHPUnit\Framework\TestCase;
 
 class StringsTest extends TestCase {
 
-    public function providerEncodings() {
+    public static function providerEncodings() {
         return array(
             array('UTF-8'),
             array('ISO-8859-1'),
         );
     }
 
-    public function providerSnakeAndCamelCase() {
+    public static function providerSnakeAndCamelCase() {
         return array(
             // Encoding, Snake, Camel, tests (S = Snake Equals, s = Snake Not Equals)
             array('UTF-8',      'it_is_time_to_take_a_nap', 'ItIsTimeToTakeANap',   'SC'),
@@ -111,7 +111,7 @@ class StringsTest extends TestCase {
     }
 
 
-    public function providerUcFirstAndLcFirst() {
+    public static function providerUcFirstAndLcFirst() {
         return array(
             array('hello', 'Hello', 'hello', 'UTF-8',        true),
             array('hello', 'Hello', 'Hello', 'UTF-8',        true),
@@ -187,7 +187,7 @@ class StringsTest extends TestCase {
     }
 
 
-    public function providerTrim() {
+    public static function providerTrim() {
         return array(
             array("\t\tmiddle\t\t"),
             array("\t\t some words \n \t\t"),

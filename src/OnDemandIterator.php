@@ -9,6 +9,8 @@
 namespace Revinate\Sequence;
 
 
+use \ReturnTypeWillChange;
+
 class OnDemandIterator implements \Iterator {
     /** @var  \Closure|callable */
     protected $fnGetIterator;
@@ -30,28 +32,23 @@ class OnDemandIterator implements \Iterator {
         return $this->iterator;
     }
 
-    #[\ReturnTypeWillChange]
-    public function current() {
+    #[ReturnTypeWillChange] public function current() {
         return $this->getIterator()->current();
     }
 
-    #[\ReturnTypeWillChange]
-    public function next() {
+    #[ReturnTypeWillChange] public function next() {
         $this->getIterator()->next();
     }
 
-    #[\ReturnTypeWillChange]
-    public function key() {
+    #[ReturnTypeWillChange] public function key() {
         return $this->getIterator()->key();
     }
 
-    #[\ReturnTypeWillChange]
-    public function valid() {
+    #[ReturnTypeWillChange] public function valid() {
         return $this->getIterator()->valid();
     }
 
-    #[\ReturnTypeWillChange]
-    public function rewind() {
+    #[ReturnTypeWillChange] public function rewind() {
         $this->getIterator()->rewind();
     }
 }

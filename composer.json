@@ -1,5 +1,5 @@
 {
-  "name": "revinate/sequence",
+  "name": "php/sequence",
   "description": "A functional programming library for PHP",
   "keywords": ["functional"],
   "license": "MIT",

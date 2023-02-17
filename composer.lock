@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a239054ec44b2b9b362b645ab6457f34",
+    "content-hash": "bd567dc77ca5c6119e75ffe812041a1b",
     "packages": [
         {
             "name": "react/partial",

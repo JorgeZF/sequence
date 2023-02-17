@@ -1,5 +1,5 @@
 {
-  "name": "php/sequence",
+  "name": "jorgezfx/sequence",
   "description": "A functional programming library for PHP",
   "keywords": ["functional"],
   "license": "MIT",

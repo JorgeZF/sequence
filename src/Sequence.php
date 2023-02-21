@@ -8,7 +8,6 @@ use \Iterator;
 use \IteratorIterator;
 use \RecursiveIterator;
 use \RecursiveIteratorIterator;
-use \ReturnTypeWillChange;
 use \Traversable;
 
 /**
@@ -477,16 +476,16 @@ class Sequence extends IteratorIterator implements IterationFunctions, Recursive
     }
 
     /**
-     * @return null
+     * @return RecursiveIterator|null
      */
-    #[ReturnTypeWillChange] public function getChildren() {
+    public function getChildren(): ?RecursiveIterator {
         return null;
     }
 
     /**
-     * @return false
+     * @return bool
      */
-    #[ReturnTypeWillChange] public function hasChildren() {
+    public function hasChildren(): bool {
         return false;
     }
 }

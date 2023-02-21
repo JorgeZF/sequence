@@ -5,7 +5,7 @@ namespace Revinate\Sequence;
 use \Closure;
 use \FilterIterator;
 use \Iterator;
-use \ReturnTypeWillChange;
+use ReturnTypeWillChange;
 
 /**
  * Class FilteredSequence

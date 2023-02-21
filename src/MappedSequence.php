@@ -4,7 +4,6 @@ namespace Revinate\Sequence;
 
 use \Closure;
 use \Iterator;
-use \ReturnTypeWillChange;
 
 /**
  * Class MappedSequence
@@ -38,12 +37,12 @@ class MappedSequence extends Sequence {
         $this->fnMapKeyFunction = $fnMapKeyFunction;
     }
 
-    #[ReturnTypeWillChange] public function current() {
+     public function current(): mixed {
         $fn = $this->fnMapValueFunction;
         return $fn(parent::current(), parent::key());
     }
 
-    #[ReturnTypeWillChange] public function key() {
+    public function key(): mixed {
         $fn = $this->fnMapKeyFunction;
         return $fn(parent::key(), parent::current());
     }

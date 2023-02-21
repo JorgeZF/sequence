@@ -9,21 +9,23 @@
 namespace Revinate\Sequence;
 
 
-use \ReturnTypeWillChange;
+use Closure;
+use Iterator;
 
-class OnDemandIterator implements \Iterator {
-    /** @var  \Closure|callable */
+class OnDemandIterator implements Iterator {
+    /** @var  Closure|callable */
     protected $fnGetIterator;
-    protected $iterator = null;
+    protected ?Iterator $iterator = null;
 
     public function __construct($fnGetIterator) {
         $this->fnGetIterator = $fnGetIterator;
     }
 
     /**
-     * @return \Iterator
+     * @return Iterator|null
      */
-    public function getIterator() {
+    public function getIterator(): ?Iterator
+    {
         if (is_null($this->iterator)) {
             $fn = $this->fnGetIterator;
             $this->iterator = $fn();
@@ -32,23 +34,23 @@ class OnDemandIterator implements \Iterator {
         return $this->iterator;
     }
 
-    #[ReturnTypeWillChange] public function current() {
+    public function current(): mixed {
         return $this->getIterator()->current();
     }
 
-    #[ReturnTypeWillChange] public function next() {
+    public function next(): void {
         $this->getIterator()->next();
     }
 
-    #[ReturnTypeWillChange] public function key() {
+    public function key(): mixed {
         return $this->getIterator()->key();
     }
 
-    #[ReturnTypeWillChange] public function valid() {
+    public function valid(): bool {
         return $this->getIterator()->valid();
     }
 
-    #[ReturnTypeWillChange] public function rewind() {
+    public function rewind(): void {
         $this->getIterator()->rewind();
     }
 }

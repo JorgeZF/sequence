@@ -1,6 +1,6 @@
 # Sequence [![Build Status](https://travis-ci.org/revinate/sequence.svg)](https://travis-ci.org/revinate/sequence)
 
-This library makes it easier to use functional style programming in PHP
+This library makes it easier to use functional style programming in PHP. This library is a fork of the original Revinate/Sequence library https://github.com/revinate/sequence this fork is intended to upgrade the library to work with PHP 8.1 version.
 
 ## PHP Backward Compatibility
 As we move our codebase forward, it is no longer possible for us to support older versions of PHP.
@@ -12,7 +12,7 @@ Install the package via composer by adding this section to the composer.json fil
 
 ```JSON
 "require": {
-    "revinate/sequence": "~0.4"
+    "jorgezf/sequence": "1.0.0"
 },
 ```
 
@@ -59,7 +59,7 @@ For a more detailed documentation, see [Wiki](https://github.com/revinate/sequen
 First clone the repo and install the dependencies
 
 ```Bash
-git clone https://github.com/revinate/sequence.git
+git clone https://github.com/jorgezf/sequence.git
 composer install
 ```
 

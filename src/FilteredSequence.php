@@ -5,7 +5,6 @@ namespace Revinate\Sequence;
 use \Closure;
 use \FilterIterator;
 use \Iterator;
-use ReturnTypeWillChange;
 
 /**
  * Class FilteredSequence
@@ -28,9 +27,9 @@ class FilteredSequence extends FilterIterator {
      * Necessary to support FilterIterator - true = keep, false = skip
      * @return bool
      */
-    #[ReturnTypeWillChange] public function accept() {
+    public function accept(): bool {
         /** @var Closure $fn */
         $fn = $this->fnFilterFunction;
-        return $fn($this->current(), $this->key());
+        return $fn($this->current(), $this->key()) ?? false;
     }
 }

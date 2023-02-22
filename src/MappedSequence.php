@@ -37,7 +37,7 @@ class MappedSequence extends Sequence {
         $this->fnMapKeyFunction = $fnMapKeyFunction;
     }
 
-     public function current(): mixed {
+    public function current(): mixed {
         $fn = $this->fnMapValueFunction;
         return $fn(parent::current(), parent::key());
     }

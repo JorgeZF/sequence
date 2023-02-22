@@ -1,6 +1,8 @@
-# Sequence [![Build Status](https://travis-ci.org/revinate/sequence.svg)](https://travis-ci.org/revinate/sequence)
+This library makes it easier to use functional style programming in PHP. 
 
-This library makes it easier to use functional style programming in PHP. This library is a fork of the original Revinate/Sequence library https://github.com/revinate/sequence this fork is intended to upgrade the library to work with PHP 8.1 version.
+## IMPORTANT:
+This library is a fork of the original Revinate/Sequence library https://github.com/revinate/sequence. 
+This fork is intended to upgrade the library to be compatible with PHP 8.1 version.
 
 ## PHP Backward Compatibility
 As we move our codebase forward, it is no longer possible for us to support older versions of PHP.
@@ -22,7 +24,7 @@ require_once __DIR__.'/vendor/autoload.php';
 
 use Revinate\Sequence\Sequence;
 
-$dataSet = array(1, 2, 3, 4, 5);
+$dataSet = [1, 2, 3, 4, 5];
 $seq = Sequence::make($dataSet);
 
 // At this point you have a sequence and you can do bunch of cool sequence stuff with it
@@ -64,9 +66,7 @@ composer install
 and then run the tests:
 
 ```Bash
-phpunit
+./vendor/bin/phpunit
 ```
 
 That's all you need to start working on Sequence. Please, include tests in your pull requests.
-
-

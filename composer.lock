@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "defdcdf668f8c1206a36826c5a3d153a",
+    "content-hash": "f9ffe2e5f9ca85f5bd9223011e33cdae",
     "packages": [
         {
             "name": "react/partial",
@@ -57,8 +57,14 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/revinate/php-getter-setter",
+                "url": "https://github.com/revinate/php-getter-setter.git",
                 "reference": "d4f3f37ae7cc089ffbac7b19b0bf2bddb0599d83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/revinate/php-getter-setter/zipball/d4f3f37ae7cc089ffbac7b19b0bf2bddb0599d83",
+                "reference": "d4f3f37ae7cc089ffbac7b19b0bf2bddb0599d83",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -69,16 +75,17 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Revinate\\GetterSetter\\": "src",
-                    "Revinate\\GetterSetter\\test\\": "test"
-                },
                 "files": [
                     "src/getValueFunctions.php",
                     "src/setValueFunctions.php",
                     "src/util/utils.php"
-                ]
+                ],
+                "psr-4": {
+                    "Revinate\\GetterSetter\\": "src",
+                    "Revinate\\GetterSetter\\test\\": "test"
+                }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -89,6 +96,10 @@
                 }
             ],
             "description": "PHP library to simplify getting and setting values in arrays and objects.",
+            "support": {
+                "issues": "https://github.com/revinate/php-getter-setter/issues",
+                "source": "https://github.com/revinate/php-getter-setter/tree/v1.0.0-beta"
+            },
             "time": "2020-06-25T01:32:21+00:00"
         }
     ],

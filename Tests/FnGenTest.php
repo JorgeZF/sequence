@@ -10,7 +10,6 @@ namespace Revinate\Sequence;
 
 
 use PHPUnit\Framework\TestCase;
-use ReturnTypeWillChange;
 
 class FnGenTest extends TestCase {
 
@@ -304,7 +303,7 @@ class FnGenTest extends TestCase {
     public function testFnCount() {
         $fn = FnGen::fnCount();
         $co = new class implements \Countable {
-            #[ReturnTypeWillChange] public function count()
+            public function count(): int
             {
                 return 42;
             }

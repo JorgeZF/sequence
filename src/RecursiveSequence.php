@@ -10,9 +10,6 @@ class RecursiveSequence extends Sequence implements RecursiveIterator  {
         return ($this->depth - 1) !== 0;
     }
 
-    /**
-     * @return RecursiveIterator|null
-     */
     public function getChildren(): ?RecursiveIterator {
         $x = $this->current();
         if ($this->canGoDeeper()) {

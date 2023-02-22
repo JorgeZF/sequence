@@ -21,9 +21,6 @@ class OnDemandIterator implements Iterator {
         $this->fnGetIterator = $fnGetIterator;
     }
 
-    /**
-     * @return Iterator|null
-     */
     public function getIterator(): ?Iterator
     {
         if (is_null($this->iterator)) {

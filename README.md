@@ -8,12 +8,10 @@ With release version 1.0 and onward, we will stop supporting PHP 5.3 and PHP 5.4
 
 ## Quick Example
 
-Install the package via composer by adding this section to the composer.json file:
+Install the package via composer by executing the following command:
 
-```JSON
-"require": {
-    "jorgezf/sequence": "1.0.0"
-},
+```Bash
+composer require jorgezf/sequence
 ```
 
 This is a tiny script to get a feeling of how Sequence works.

@@ -2,7 +2,6 @@
 
 namespace Revinate\Sequence;
 
-
 class TraverseSequence extends RecursiveSequence {
     protected $path;
     protected $pathSeparator = '.';

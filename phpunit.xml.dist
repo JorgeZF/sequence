@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" bootstrap="Tests/bootstrap.php" backupGlobals="false" cacheResultFile=".phpunit.cache">
-  <coverage>
-    <include>
-      <directory suffix=".php">src</directory>
-    </include>
-    <exclude>
-      <directory>vendor</directory>
-      <directory>Tests</directory>
-      <directory>Tutorial</directory>
-    </exclude>
-    <report>
-      <text outputFile="php://stdout"/>
-    </report>
-  </coverage>
-  <testsuites>
-    <testsuite name="Sequence">
-      <directory suffix="Test.php">Tests</directory>
-    </testsuite>
-    <testsuite name="Tutorial">
-      <directory suffix="Test.php">Tutorial/test</directory>
-    </testsuite>
-  </testsuites>
-  <logging/>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd" bootstrap="Tests/bootstrap.php"
+         backupGlobals="false" cacheResultFile=".phpunit.cache">
+    <coverage>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <exclude>
+            <directory>vendor</directory>
+            <directory>Tests</directory>
+            <directory>Tutorial</directory>
+        </exclude>
+        <report>
+            <text outputFile="php://stdout"/>
+        </report>
+    </coverage>
+    <testsuites>
+        <testsuite name="Sequence">
+            <directory suffix="Test.php">Tests</directory>
+        </testsuite>
+        <testsuite name="Tutorial">
+            <directory suffix="Test.php">Tutorial/test</directory>
+        </testsuite>
+    </testsuites>
+    <logging/>
 </phpunit>

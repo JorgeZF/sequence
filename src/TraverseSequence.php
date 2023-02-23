@@ -2,7 +2,9 @@
 
 namespace Revinate\Sequence;
 
-class TraverseSequence extends RecursiveSequence {
+use RecursiveIterator;
+
+class TraverseSequence extends RecursiveSequence implements RecursiveIterator{
     protected $path;
     protected $pathSeparator = '.';
 
@@ -20,7 +22,7 @@ class TraverseSequence extends RecursiveSequence {
         return $traverseSequence;
     }
 
-    public function getChildren(): TraverseSequence|MappedSequence {
+    public function getChildren(): ?RecursiveIterator {
         $x = $this->current();
         if ($this->canGoDeeper()) {
             return self::make($x, $this->key(), $this->pathSeparator)->setMaxDepth($this->depth - 1);

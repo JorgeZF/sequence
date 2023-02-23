@@ -5,8 +5,6 @@
 
 namespace Revinate\Sequence\Test;
 
-use ReturnTypeWillChange;
-
 class FancyArray extends \ArrayObject
 {
 
@@ -219,13 +217,10 @@ class FancyArray extends \ArrayObject
         return join($glue, $this->to_a());
     }
 
-    /**
-     * @return FancyArray
-     */
-    #[ReturnTypeWillChange] public function ksort(int $flags = SORT_REGULAR) {
+    public function ksort(int $flags = SORT_REGULAR): bool {
         $arr = $this->to_a();
         ksort($arr);
-        return new self($arr);
+        return (bool) new self($arr);
     }
 
     /**
@@ -237,22 +232,16 @@ class FancyArray extends \ArrayObject
         return new self($arr);
     }
 
-    /**
-     * @return FancyArray
-     */
-    #[ReturnTypeWillChange] public function uksort($func) {
+    public function uksort(callable $callback): bool {
         $arr = $this->to_a();
-        uksort($arr, $func);
-        return new self($arr);
+        uksort($arr, $callback);
+        return (bool) new self($arr);
     }
 
-    /**
-     * @return FancyArray
-     */
-    #[ReturnTypeWillChange] public function asort(int $flags = SORT_REGULAR) {
+    public function asort(int $flags = SORT_REGULAR): bool {
         $arr = $this->to_a();
         asort($arr);
-        return new self($arr);
+        return (bool) new self($arr);
     }
 
     /**
@@ -273,13 +262,10 @@ class FancyArray extends \ArrayObject
         return new self($arr);
     }
 
-    /**
-     * @return FancyArray
-     */
-    #[ReturnTypeWillChange] public function uasort($callback) {
+    public function uasort(callable $callback): bool {
         $arr = $this->to_a();
         uasort($arr, $callback);
-        return new self($arr);
+        return (bool) new self($arr);
     }
 
     public function key_by($rekey_by) {

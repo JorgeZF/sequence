@@ -9,19 +9,20 @@
 namespace Revinate\Sequence;
 
 
-class OnDemandIterator implements \Iterator {
-    /** @var  \Closure|callable */
+use Closure;
+use Iterator;
+
+class OnDemandIterator implements Iterator {
+    /** @var  Closure|callable */
     protected $fnGetIterator;
-    protected $iterator = null;
+    protected ?Iterator $iterator = null;
 
     public function __construct($fnGetIterator) {
         $this->fnGetIterator = $fnGetIterator;
     }
 
-    /**
-     * @return \Iterator
-     */
-    public function getIterator() {
+    public function getIterator(): ?Iterator
+    {
         if (is_null($this->iterator)) {
             $fn = $this->fnGetIterator;
             $this->iterator = $fn();
@@ -30,23 +31,23 @@ class OnDemandIterator implements \Iterator {
         return $this->iterator;
     }
 
-    public function current() {
+    public function current(): mixed {
         return $this->getIterator()->current();
     }
 
-    public function next() {
+    public function next(): void {
         $this->getIterator()->next();
     }
 
-    public function key() {
+    public function key(): mixed {
         return $this->getIterator()->key();
     }
 
-    public function valid() {
+    public function valid(): bool {
         return $this->getIterator()->valid();
     }
 
-    public function rewind() {
+    public function rewind(): void {
         $this->getIterator()->rewind();
     }
 }

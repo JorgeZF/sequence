@@ -8,7 +8,6 @@
 
 namespace Revinate\Sequence\Tutorial\util;
 
-
 class StreamReaderIterator implements \Iterator {
 
     /** @var  resource */
@@ -33,22 +32,22 @@ class StreamReaderIterator implements \Iterator {
         fclose($this->resource);
     }
 
-    public function next() {
+    public function next(): void {
         $this->current = null;
         $this->isValid = ! feof($this->resource);
         ++$this->lineNumber;
     }
 
-    public function valid() {
+    public function valid(): bool {
         return $this->isValid;
     }
 
-    public function rewind() {
+    public function rewind(): void {
         if (rewind($this->resource)) {
             $this->lineNumber = 0;
         }
     }
-    public function current() {
+    public function current(): mixed {
         if (is_null($this->current)) {
             $this->current = fgets($this->resource);
         }
@@ -58,7 +57,7 @@ class StreamReaderIterator implements \Iterator {
         return $this->current;
     }
 
-    public function key() {
+    public function key(): mixed {
         return $this->lineNumber;
     }
 }

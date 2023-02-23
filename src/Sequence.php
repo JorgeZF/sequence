@@ -475,17 +475,11 @@ class Sequence extends IteratorIterator implements IterationFunctions, Recursive
         return new static($iterator);
     }
 
-    /**
-     * @return null
-     */
-    public function getChildren() {
+    public function getChildren(): ?RecursiveIterator {
         return null;
     }
 
-    /**
-     * @return false
-     */
-    public function hasChildren() {
+    public function hasChildren(): bool {
         return false;
     }
 }

@@ -44,7 +44,7 @@ class ArrayUtil {
      * @throws gs\UnableToGetFieldException
      */
     public static function getPath($doc, $path, $default = null) {
-        return gs\get($doc, $path, $default);
+        return gs\get($doc, $path ?? '', $default);
     }
 
     /**

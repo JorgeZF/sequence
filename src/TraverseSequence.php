@@ -4,7 +4,7 @@ namespace Revinate\Sequence;
 
 use RecursiveIterator;
 
-class TraverseSequence extends RecursiveSequence implements RecursiveIterator{
+class TraverseSequence extends RecursiveSequence implements RecursiveIterator {
     protected $path;
     protected $pathSeparator = '.';
 
